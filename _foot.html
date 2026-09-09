@@ -1,0 +1,17 @@
+</tbody></table></div>
+<div class="empty" id="emptyMsg" style="display:none">目前尚無新物件記錄,明天 09:00 起會開始累積。</div>
+<script>
+function flt(b){document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('on'));b.classList.add('on');var f=b.dataset.f;document.querySelectorAll('#rows tr').forEach(function(r){r.style.display=(f==='all'||r.dataset.area===f)?'':'none'});}
+var S={c:-1,d:1};
+function srt(th){var ths=[].slice.call(th.parentNode.children);var i=ths.indexOf(th);var t=th.dataset.type||'text';
+ S.d=(S.c===i)?-S.d:(t==='date'?-1:1);S.c=i;
+ var tb=document.getElementById('rows');var rows=[].slice.call(tb.querySelectorAll('tr'));
+ rows.sort(function(a,b){var av=a.children[i].textContent.trim(),bv=b.children[i].textContent.trim();
+  if(t==='num'){av=parseFloat(av.replace(/[^0-9.\-]/g,''));bv=parseFloat(bv.replace(/[^0-9.\-]/g,''));av=isNaN(av)?-Infinity:av;bv=isNaN(bv)?-Infinity:bv;return (av-bv)*S.d;}
+  return av.localeCompare(bv,'zh-Hant')*S.d;});
+ rows.forEach(function(r){tb.appendChild(r);});
+ ths.forEach(function(h){var s=h.querySelector('.arr');if(s)s.textContent='';});
+ var a=th.querySelector('.arr');if(a)a.textContent=S.d>0?' ▲':' ▼';}
+if(!document.querySelector('#rows tr')){document.getElementById('emptyMsg').style.display='block';}
+</script>
+</body></html>

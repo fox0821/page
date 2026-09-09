@@ -1,0 +1,57 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>591 每日新物件</title>
+<style>
+:root{color-scheme:light dark}
+body{font:14px/1.5 -apple-system,"Segoe UI","Microsoft JhengHei",sans-serif;margin:0;background:#f6f7f9;color:#1c2024}
+header{position:sticky;top:0;background:#fff;border-bottom:1px solid #e3e6ea;padding:14px 20px;z-index:5}
+h1{margin:0;font-size:18px}
+.sub{color:#697077;font-size:12px;margin-top:2px}
+.filters{margin-top:10px;display:flex;gap:6px;flex-wrap:wrap}
+.filters button{border:1px solid #d0d5da;background:#fff;border-radius:999px;padding:4px 12px;font-size:13px;cursor:pointer}
+.filters button.on{background:#1c2024;color:#fff;border-color:#1c2024}
+.hint{color:#9aa0a6;font-size:12px;margin-left:6px}
+.wrap{overflow-x:auto;padding:16px 20px}
+table{border-collapse:collapse;width:100%;min-width:1080px;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+th,td{padding:9px 11px;text-align:left;border-bottom:1px solid #eef0f2;white-space:nowrap}
+th{background:#fafbfc;font-size:12px;color:#697077;position:sticky;top:0;cursor:pointer;user-select:none}
+th:hover{background:#f0f2f4;color:#1c2024}
+th .arr{color:#0b6bcb;font-size:11px}
+tr:hover td{background:#f8fafc}
+td.n{text-align:right;font-variant-numeric:tabular-nums}
+td.price{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+td.title{white-space:normal;min-width:220px}
+td.title a{color:#0b6bcb;text-decoration:none}
+td.title a:hover{text-decoration:underline}
+.chip{display:inline-block;padding:1px 8px;border-radius:6px;font-size:12px;font-weight:600}
+.a中和{background:#e7f0ff;color:#0b4a9c}.a永和{background:#fdeede;color:#9a5b00}
+.a新店{background:#e6f6ec;color:#1a7a3f}.a文山{background:#f3e8fb;color:#6b2fa0}
+.empty{padding:40px;text-align:center;color:#9aa0a6}
+@media(prefers-color-scheme:dark){body{background:#16181b;color:#e6e8ea}header,table{background:#1e2126}th{background:#23262b}th:hover{background:#2a2e33;color:#e6e8ea}tr:hover td{background:#23262b}th,td{border-color:#2a2e33}}
+</style></head><body>
+<header>
+<h1>🏠 591 每日新物件</h1>
+<div class="sub">中和・永和・新店・文山 ｜ 公寓/華廈 ｜ 1000–2000 萬 ｜ 每天 09:00 更新,最新在最上面<span class="hint">（點欄位標題可排序）</span></div>
+<div class="filters">
+<button class="on" data-f="all" onclick="flt(this)">全部</button>
+<button data-f="中和" onclick="flt(this)">中和</button>
+<button data-f="永和" onclick="flt(this)">永和</button>
+<button data-f="新店" onclick="flt(this)">新店</button>
+<button data-f="文山" onclick="flt(this)">文山</button>
+</div></header>
+<div class="wrap"><table><thead><tr>
+<th data-type="date" onclick="srt(this)">抓取日<span class="arr"></span></th>
+<th data-type="text" onclick="srt(this)">區域<span class="arr"></span></th>
+<th data-type="text" onclick="srt(this)">型態<span class="arr"></span></th>
+<th data-type="text" onclick="srt(this)">格局<span class="arr"></span></th>
+<th data-type="num" onclick="srt(this)">坪<span class="arr"></span></th>
+<th data-type="text" onclick="srt(this)">樓層<span class="arr"></span></th>
+<th data-type="num" onclick="srt(this)">屋齡<span class="arr"></span></th>
+<th data-type="text" onclick="srt(this)">地址<span class="arr"></span></th>
+<th data-type="text" onclick="srt(this)">社區<span class="arr"></span></th>
+<th data-type="num" onclick="srt(this)">總價(萬)<span class="arr"></span></th>
+<th data-type="num" onclick="srt(this)">單價<span class="arr"></span></th>
+<th data-type="num" onclick="srt(this)">附近實價<span class="arr"></span></th>
+<th data-type="num" onclick="srt(this)">vs行情<span class="arr"></span></th>
+<th data-type="text" onclick="srt(this)">物件<span class="arr"></span></th>
+</tr></thead><tbody id="rows">
